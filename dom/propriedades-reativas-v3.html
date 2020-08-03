@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button v-on:click="aumentar">Aumentar</button>
+        <button v-on:click="contador2++">Aumentar 2</button>
+        <button v-on:click="diminuir">Diminuir</button>
+        <p>Contador: {{ contador }} | {{ contador2 }}</p>
+        <p>Resultado: {{ resultado }}</p>
+    </div>
+
+</body>
+<script src="../vue-devtools/vue.dev.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            contador2: 0,
+        },
+        computed: {
+            //Computado
+            resultado() {
+                console.log("Metodo computado foi chamado!");
+                return this.contador >= 5 ?
+                    'Maior ou igual a 5' : 'Menor que 5';
+            },
+        },
+        watch: {
+            contador(novo, antigo) {
+                setTimeout(() => {
+                    this.contador = 0;
+                }, 2000);
+            }
+        },
+        methods: {
+            aumentar() {
+                this.contador++;
+            },
+            diminuir() {
+                this.contador--;
+            },
+            //Não computado
+            // resultado() {
+            //     console.log("Metodo computado foi chamado!");
+            //     return this.contador >= 5 ?
+            //         'Maior ou igual a 5' : 'Menor que 5';
+            // }
+        }
+    });
+</script>
+
+</html>

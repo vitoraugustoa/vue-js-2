@@ -1,0 +1,50 @@
+#efeito {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}
+
+.loading-box {
+	width: 400px;
+	height: 20px;
+	border: 1px solid #595959;
+	margin-top: 10px;
+	position: relative;
+}
+
+.progress-bar {
+	height: 100%;
+	position: absolute;
+	background-color: #add555;
+	transition: 2s;
+}
+
+.destaque {
+	background-color: red;
+	width: 200px !important;
+}
+
+.teste {
+	background-color: red;
+	width: 100px !important;
+	height: 100px !important;
+}
+
+.teste2 {
+	background-color: blue;
+	width: 100px !important;
+	height: 100px !important;
+}
+
+.encolher {
+	background-color: gray;
+	width: 50px !important;
+}
+
+.font-20 {
+	font-size: 20px;
+}
+
+.font-color-red {
+	color: red;
+}

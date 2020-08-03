@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS</title>
+</head>
+<style>
+    
+    .caixas {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .cor-1 {
+        background-color: red;
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: blue;
+    }
+
+</style>
+<body>
+
+<div id="app">
+    <div class="caixas">
+        <!-- <div class="demo" :style="{'background-color': cor}"></div> -->
+        <div class="demo" :style="{backgroundColor: cor}"></div>
+        <div class="demo" :style="meuEstilo"></div>
+        <div class="demo"></div>    
+    </div>
+    <br>
+    <div class="caixas">
+        <div>
+            <label for="cor">Cor: </label>
+            <input type="text" name="cor" v-model="cor">
+        </div>
+
+        <div>
+            <label for="largura">Largura: </label>
+            <input type="text" name="largura" v-model="largura">
+        </div>
+    </div>
+</div>
+    
+</body>
+<script src="../vue-devtools/vue.dev.js"></script>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+      cor: 'red',
+      largura: 200,
+  },
+  computed: {
+      meuEstilo() {
+          return {
+              backgroundColor: this.cor,
+              width: this.largura + 'px',
+            } 
+      }
+  },
+  methods: {
+  }
+});
+</script>
+</html>

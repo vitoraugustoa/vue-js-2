@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS</title>
+</head>
+<style>
+    
+    .caixas {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .cor-1 {
+        background-color: red;
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: blue;
+    }
+
+    .girar {
+        animation: rotation 2s infinite;
+    }
+
+    @-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(360deg);
+		}
+}
+
+</style>
+<body>
+
+<div id="app">
+    <div class="caixas">
+        <div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
+        <div class="demo"></div>
+        <div class="demo" :class="[ classeCSS, {'girar': aplicarGirar} ]"></div>    
+    </div>
+    <br>
+    <div class="caixas">
+        <input type="text" v-model="classeCSS">
+        <button  @click="aplicarGirar = !aplicarGirar">Girar</button>
+    </div>
+</div>
+    
+</body>
+<script src="../vue-devtools/vue.dev.js"></script>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+      aplicarC1: false,
+      classeCSS: 'cor-1',
+      aplicarGirar: false,
+  },
+  computed: {
+      estilo1() {
+          return {
+            'cor-1': this.aplicarC1,
+            c2: !this.aplicarC1,
+          } 
+      }
+  },
+  methods: {
+  }
+});
+</script>
+</html>
